@@ -1,0 +1,259 @@
+[gd_scene load_steps=18 format=2]
+
+[ext_resource path="res://scenes/d2.tscn" type="PackedScene" id=1]
+[ext_resource path="res://scenes/door_1.tscn" type="PackedScene" id=2]
+[ext_resource path="res://enemy/skelet2.tscn" type="PackedScene" id=3]
+[ext_resource path="res://model/key.obj" type="ArrayMesh" id=4]
+[ext_resource path="res://object/action.tscn" type="PackedScene" id=5]
+[ext_resource path="res://scenes/head_runner.tscn" type="PackedScene" id=6]
+[ext_resource path="res://model/smalldoor.tscn" type="PackedScene" id=7]
+[ext_resource path="res://model/gate.tscn" type="PackedScene" id=8]
+[ext_resource path="res://model/big_door.tscn" type="PackedScene" id=9]
+
+[sub_resource type="PanoramaSky" id=1]
+
+[sub_resource type="Environment" id=2]
+background_mode = 1
+background_sky = SubResource( 1 )
+ambient_light_color = Color( 0.933333, 0.933333, 0.933333, 1 )
+
+[sub_resource type="SpatialMaterial" id=3]
+albedo_color = Color( 1, 0.843137, 0, 1 )
+
+[sub_resource type="SpatialMaterial" id=4]
+albedo_color = Color( 0.752941, 0.752941, 0.752941, 1 )
+
+[sub_resource type="SpatialMaterial" id=5]
+albedo_color = Color( 0.619608, 0.160784, 0.160784, 1 )
+
+[sub_resource type="SpatialMaterial" id=6]
+albedo_color = Color( 0, 0.74902, 1, 1 )
+
+[sub_resource type="SpatialMaterial" id=7]
+albedo_color = Color( 0.313726, 0.784314, 0.470588, 1 )
+
+[sub_resource type="SpatialMaterial" id=8]
+albedo_color = Color( 0.0313726, 0.145098, 0.403922, 1 )
+
+[node name="level" type="Spatial"]
+
+[node name="d2" parent="." instance=ExtResource( 1 )]
+
+[node name="lights" type="Spatial" parent="."]
+
+[node name="DirectionalLight" type="DirectionalLight" parent="lights"]
+transform = Transform( -0.711539, 0.633974, -0.302967, -0.592023, -0.308689, 0.74446, 0.378445, 0.709076, 0.594971, -48.8574, 35.5641, 46.483 )
+light_color = Color( 0.776471, 0.776471, 0.776471, 1 )
+light_energy = 2.0
+shadow_enabled = true
+
+[node name="env_inside" type="WorldEnvironment" parent="."]
+environment = SubResource( 2 )
+
+[node name="doors" type="Spatial" parent="."]
+
+[node name="door_1_1" parent="doors" instance=ExtResource( 2 )]
+transform = Transform( -1.62921e-07, 0, 1, 0, 1, 0, -1, 0, -1.62921e-07, -18.998, 0, -2.35422 )
+need_key = "key"
+mess = "need gold key"
+
+[node name="door_1_2" parent="doors" instance=ExtResource( 2 )]
+transform = Transform( -1.62921e-07, 0, 1, 0, 1, 0, -1, 0, -1.62921e-07, 11.2554, 0.00212383, -2.33828 )
+need_key = "bluekey"
+mess = "Need sapphire key"
+
+[node name="door_1_3" parent="doors" instance=ExtResource( 2 )]
+transform = Transform( -1.62921e-07, 0, 1, 0, 1, 0, -1, 0, -1.62921e-07, 7.85272, -1.60305, 13.7221 )
+need_key = "greenkey"
+mess = "need emerald key"
+
+[node name="door_1_6" parent="doors" instance=ExtResource( 2 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 18.4167, -0.00180304, 39.9954 )
+need_key = "aqvakey"
+mess = "Need diamond key"
+
+[node name="door_1_4" parent="doors" instance=ExtResource( 2 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -42.3935, -0.00505507, 6.3958 )
+need_key = "redkey"
+mess = "Need ruby key"
+
+[node name="door_1_5" parent="doors" instance=ExtResource( 2 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -42.3895, 0.00594556, -7.75215 )
+need_key = "whitekey"
+mess = "Need silver key"
+
+[node name="skelet2" parent="." instance=ExtResource( 3 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 16.8869, 1.8202, 64.8485 )
+
+[node name="keys" type="Spatial" parent="."]
+
+[node name="key" type="MeshInstance" parent="keys"]
+transform = Transform( 0.04, 0, 0, 0, -1.74846e-09, -0.04, 0, 0.04, -1.74846e-09, 3.05008, 1.01124, 5.44478 )
+mesh = ExtResource( 4 )
+material/0 = SubResource( 3 )
+
+[node name="action" parent="keys/key" instance=ExtResource( 5 )]
+transform = Transform( 2, 0, 0, 0, 3, 1.77636e-14, 0, -5.68434e-14, 1, 0, 2.41042, -0.132629 )
+visible = false
+label = "gold key"
+on_remove_parent = true
+pack_item = {
+"count": 1,
+"desc": "key of door",
+"icon": "key",
+"key": "key",
+"label": "gold key"
+}
+
+[node name="key6" type="MeshInstance" parent="keys"]
+transform = Transform( 0.04, 0, 0, 0, -1.74846e-09, -0.04, 0, 0.04, -1.74846e-09, -15.6241, 0.00498295, -10.7462 )
+mesh = ExtResource( 4 )
+material/0 = SubResource( 4 )
+
+[node name="action" parent="keys/key6" instance=ExtResource( 5 )]
+transform = Transform( 2, 0, 0, 0, 3, 1.77636e-14, 0, -5.68434e-14, 1, 0, 2.41042, -0.132629 )
+visible = false
+label = "silver  key"
+on_remove_parent = true
+pack_item = {
+"count": 1,
+"desc": "key of door",
+"icon": "white_key",
+"key": "whitekey",
+"label": "silver key"
+}
+
+[node name="key5" type="MeshInstance" parent="keys"]
+transform = Transform( 0.04, 0, 0, 0, -1.74846e-09, -0.04, 0, 0.04, -1.74846e-09, 16.8318, 1.61059, 60.0274 )
+mesh = ExtResource( 4 )
+material/0 = SubResource( 5 )
+
+[node name="action" parent="keys/key5" instance=ExtResource( 5 )]
+transform = Transform( 2, 0, 0, 0, 3, 1.77636e-14, 0, -5.68434e-14, 1, 0, 2.41042, -0.132629 )
+visible = false
+label = "ruby key"
+on_remove_parent = true
+pack_item = {
+"count": 1,
+"desc": "key of door",
+"icon": "red_key",
+"key": "redkey",
+"label": "ruby key"
+}
+
+[node name="key4" type="MeshInstance" parent="keys"]
+transform = Transform( 0.04, 0, 0, 0, -1.74846e-09, -0.04, 0, 0.04, -1.74846e-09, 14.788, 2.86643, 12.2569 )
+mesh = ExtResource( 4 )
+material/0 = SubResource( 6 )
+
+[node name="action" parent="keys/key4" instance=ExtResource( 5 )]
+transform = Transform( 2, 0, 0, 0, 3, 1.77636e-14, 0, -5.68434e-14, 1, 0, 2.41042, -0.132629 )
+visible = false
+label = "diamond  key"
+on_remove_parent = true
+pack_item = {
+"count": 1,
+"desc": "key of door",
+"icon": "aqva_key",
+"key": "aqvakey",
+"label": "diamond key"
+}
+
+[node name="key3" type="MeshInstance" parent="keys"]
+transform = Transform( 0.04, 0, 0, 0, -1.74846e-09, -0.04, 0, 0.04, -1.74846e-09, 20.3096, 1.10902, -21.0496 )
+mesh = ExtResource( 4 )
+material/0 = SubResource( 7 )
+
+[node name="action" parent="keys/key3" instance=ExtResource( 5 )]
+transform = Transform( 2, 0, 0, 0, 3, 1.77636e-14, 0, -5.68434e-14, 1, 0, 2.41042, -0.132629 )
+visible = false
+label = "emerald  key"
+on_remove_parent = true
+pack_item = {
+"count": 1,
+"desc": "key of door",
+"icon": "green_key",
+"key": "greenkey",
+"label": "emerald  key"
+}
+
+[node name="key2" type="MeshInstance" parent="keys"]
+transform = Transform( 0.04, 0, 0, 0, -6.51683e-09, -0.04, 0, 0.04, -6.51683e-09, -46.9046, 0.00945581, -25.6325 )
+mesh = ExtResource( 4 )
+material/0 = SubResource( 8 )
+
+[node name="action" parent="keys/key2" instance=ExtResource( 5 )]
+transform = Transform( 2, 0, 0, 0, 3, 2.84217e-14, 0, -1.13687e-13, 1, 0, 2.41107, -4.76837e-07 )
+visible = false
+label = "sapphire key"
+on_remove_parent = true
+pack_item = {
+"count": 1,
+"desc": "key of door",
+"icon": "blue_key",
+"key": "bluekey",
+"label": "sapphire key"
+}
+
+[node name="interacive" type="Spatial" parent="."]
+
+[node name="small door" parent="interacive" instance=ExtResource( 7 )]
+transform = Transform( 10, 0, 0, 0, 10, 0, 0, 0, 10, 24.8931, -4.80625, -21.914 )
+
+[node name="big door" parent="interacive" instance=ExtResource( 9 )]
+transform = Transform( 11, 0, 0, 0, 11, 0, 0, 0, 11, -3.96629, -2.64112, 21.3826 )
+
+[node name="big door2" parent="interacive" instance=ExtResource( 9 )]
+transform = Transform( 11, 0, 0, 0, 11, 0, 0, 0, 11, -3.97264, 2.16505, -16.8373 )
+
+[node name="big door3" parent="interacive" instance=ExtResource( 9 )]
+transform = Transform( 11, 0, 0, 0, 11, 0, 0, 0, 11, 16.8444, 0.571424, 74.0246 )
+
+[node name="gate" parent="interacive" instance=ExtResource( 8 )]
+transform = Transform( -1.62921e-06, 0, 10, 0, 10, 0, -10, 0, -1.62921e-06, -15.8531, -1.59926, 15.2729 )
+
+[node name="spauwn" type="Spatial" parent="."]
+
+[node name="hr" parent="spauwn" instance=ExtResource( 6 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -14.3066, 1.13639, 6.34709 )
+visible = false
+
+[node name="hr11" parent="spauwn" instance=ExtResource( 6 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -3.82804, 3.68968, -13.5398 )
+visible = false
+
+[node name="hr2" parent="spauwn" instance=ExtResource( 6 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 5.3892, 1.13639, 6.34709 )
+visible = false
+
+[node name="hr3" parent="spauwn" instance=ExtResource( 6 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -43.5977, -1.91605, 34.2113 )
+visible = false
+
+[node name="hr4" parent="spauwn" instance=ExtResource( 6 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -43.5977, 1.86009, -0.90619 )
+visible = false
+
+[node name="hr5" parent="spauwn" instance=ExtResource( 6 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -43.893, 2.73393, -21.7647 )
+visible = false
+
+[node name="hr6" parent="spauwn" instance=ExtResource( 6 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 25.1215, 1.87525, -0.920059 )
+visible = false
+
+[node name="hr7" parent="spauwn" instance=ExtResource( 6 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 25.1215, 2.66646, 63.8084 )
+visible = false
+
+[node name="hr8" parent="spauwn" instance=ExtResource( 6 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 9.24407, 2.66646, 63.8084 )
+visible = false
+
+[node name="hr9" parent="spauwn" instance=ExtResource( 6 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 9.24407, 2.82408, 54.1951 )
+visible = false
+
+[node name="hr10" parent="spauwn" instance=ExtResource( 6 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 24.624, 2.82408, 55.4252 )
+visible = false
