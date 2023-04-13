@@ -1,0 +1,64 @@
+[gd_scene load_steps=5 format=2]
+
+[ext_resource path="res://scripts/next.gd" type="Script" id=1]
+[ext_resource path="res://style/big2_font.tres" type="DynamicFont" id=2]
+[ext_resource path="res://style/def_blue.tres" type="Theme" id=3]
+
+[sub_resource type="CanvasItemMaterial" id=1]
+
+[node name="cut_scene" type="Node"]
+
+[node name="Panel" type="Panel" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="cut" type="Control" parent="Panel"]
+material = SubResource( 1 )
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = -1.0
+margin_top = -4.37842
+margin_right = -1.0
+margin_bottom = -4.37842
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="next" type="Button" parent="Panel/cut"]
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+margin_left = -261.0
+margin_top = -16.5
+margin_right = -104.0
+margin_bottom = 16.5
+theme = ExtResource( 3 )
+text = "NEXT"
+script = ExtResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label" type="Label" parent="Panel"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 136.0
+margin_top = 123.0
+margin_right = -1065.0
+margin_bottom = -181.0
+custom_fonts/font = ExtResource( 2 )
+text = "W - straight
+S - back
+D - right
+A - left
+I - pack
+E - get
+Left Button - attack
+space  - jump"
+__meta__ = {
+"_edit_use_anchors_": false
+}

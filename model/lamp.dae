@@ -1,0 +1,144 @@
+<?xml version="1.0" encoding="utf-8"?>
+<COLLADA xmlns="http://www.collada.org/2005/11/COLLADASchema" version="1.4.1" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <asset>
+    <contributor>
+      <author>Blender User</author>
+      <authoring_tool>Blender 2.82.7 commit date:2020-03-12, commit time:05:06, hash:375c7dc4caf4</authoring_tool>
+    </contributor>
+    <created>2020-10-14T18:59:15</created>
+    <modified>2020-10-14T18:59:15</modified>
+    <unit name="meter" meter="1"/>
+    <up_axis>Z_UP</up_axis>
+  </asset>
+  <library_effects>
+    <effect id="light_001-effect">
+      <profile_COMMON>
+        <technique sid="common">
+          <lambert>
+            <emission>
+              <color sid="emission">0 0 0 1</color>
+            </emission>
+            <diffuse>
+              <color sid="diffuse">0.8 0.8 0.8 1</color>
+            </diffuse>
+            <reflectivity>
+              <float sid="specular">0.5</float>
+            </reflectivity>
+          </lambert>
+        </technique>
+      </profile_COMMON>
+    </effect>
+    <effect id="lamp_001-effect">
+      <profile_COMMON>
+        <newparam sid="door_jpg-surface">
+          <surface type="2D">
+            <init_from>door_jpg</init_from>
+          </surface>
+        </newparam>
+        <newparam sid="door_jpg-sampler">
+          <sampler2D>
+            <source>door_jpg-surface</source>
+          </sampler2D>
+        </newparam>
+        <technique sid="common">
+          <lambert>
+            <emission>
+              <color sid="emission">0 0 0 1</color>
+            </emission>
+            <diffuse>
+              <texture texture="door_jpg-sampler" texcoord="UVMap"/>
+            </diffuse>
+            <index_of_refraction>
+              <float sid="ior">1.45</float>
+            </index_of_refraction>
+          </lambert>
+        </technique>
+      </profile_COMMON>
+    </effect>
+  </library_effects>
+  <library_images>
+    <image id="door_jpg" name="door_jpg">
+      <init_from>door.jpg</init_from>
+    </image>
+  </library_images>
+  <library_materials>
+    <material id="light_001-material" name="light.001">
+      <instance_effect url="#light_001-effect"/>
+    </material>
+    <material id="lamp_001-material" name="lamp.001">
+      <instance_effect url="#lamp_001-effect"/>
+    </material>
+  </library_materials>
+  <library_geometries>
+    <geometry id="Plane_001-mesh" name="Plane.001">
+      <mesh>
+        <source id="Plane_001-mesh-positions">
+          <float_array id="Plane_001-mesh-positions-array" count="36">-0.7997516 -1.576866 -0.05550551 0.7943996 -1.576866 -0.05550551 -0.7997516 1.56053 -0.05550551 0.7943996 1.56053 -0.05550551 -0.6980847 -1.397984 0.06128185 0.7087889 -1.397984 0.06128185 -0.6980847 1.430656 0.06128185 0.7087889 1.430656 0.06128185 -0.7997516 1.56053 -0.005776345 -0.7997516 -1.576866 -0.005776345 0.7943996 -1.576866 -0.005776345 0.7943996 1.56053 -0.005776345</float_array>
+          <technique_common>
+            <accessor source="#Plane_001-mesh-positions-array" count="12" stride="3">
+              <param name="X" type="float"/>
+              <param name="Y" type="float"/>
+              <param name="Z" type="float"/>
+            </accessor>
+          </technique_common>
+        </source>
+        <source id="Plane_001-mesh-normals">
+          <float_array id="Plane_001-mesh-normals-array" count="39">0 0 -1 0 0 1 1 0 0 -1 0 0 0 1 0 0 -1 0 -0.5506024 0 0.8347676 0 -0.3510191 0.9363684 0.6166419 0 0.7872437 0 0.4587866 0.8885466 0 -0.3510186 0.9363685 0.6166421 0 0.7872436 0 0.4587844 0.8885477</float_array>
+          <technique_common>
+            <accessor source="#Plane_001-mesh-normals-array" count="13" stride="3">
+              <param name="X" type="float"/>
+              <param name="Y" type="float"/>
+              <param name="Z" type="float"/>
+            </accessor>
+          </technique_common>
+        </source>
+        <source id="Plane_001-mesh-map-0">
+          <float_array id="Plane_001-mesh-map-0-array" count="120">-0.7997516 -1.56053 0.7943996 1.576866 -0.7997516 1.576866 0.7087889 1.397984 -0.6980847 -1.430656 -0.6980847 1.397984 0.7943996 -1.56053 0.7943996 1.576866 0.7943996 1.576866 -0.7997516 1.576866 -0.7997516 -1.56053 -0.7997516 -1.56053 -0.7997516 -1.56053 0.7943996 -1.56053 0.7943996 -1.56053 0.7943996 1.576866 -0.7997516 1.576866 -0.7997516 1.576866 -0.6980847 1.397984 -0.7997516 -1.56053 -0.7997516 1.576866 -0.6980847 1.397984 0.7943996 1.576866 0.7087889 1.397984 0.7087889 1.397984 0.7943996 -1.56053 0.7087889 -1.430656 -0.6980847 -1.430656 0.7943996 -1.56053 -0.7997516 -1.56053 -0.7997516 -1.56053 0.7943996 -1.56053 0.7943996 1.576866 0.7087889 1.397984 0.7087889 -1.430656 -0.6980847 -1.430656 0.7943996 -1.56053 0.7943996 -1.56053 0.7943996 1.576866 -0.7997516 1.576866 -0.7997516 1.576866 -0.7997516 -1.56053 -0.7997516 -1.56053 -0.7997516 -1.56053 0.7943996 -1.56053 0.7943996 1.576866 0.7943996 1.576866 -0.7997516 1.576866 -0.6980847 1.397984 -0.6980847 -1.430656 -0.7997516 -1.56053 -0.6980847 1.397984 -0.7997516 1.576866 0.7943996 1.576866 0.7087889 1.397984 0.7943996 1.576866 0.7943996 -1.56053 -0.6980847 -1.430656 0.7087889 -1.430656 0.7943996 -1.56053</float_array>
+          <technique_common>
+            <accessor source="#Plane_001-mesh-map-0-array" count="60" stride="2">
+              <param name="S" type="float"/>
+              <param name="T" type="float"/>
+            </accessor>
+          </technique_common>
+        </source>
+        <vertices id="Plane_001-mesh-vertices">
+          <input semantic="POSITION" source="#Plane_001-mesh-positions"/>
+        </vertices>
+        <triangles material="light_001-material" count="10">
+          <input semantic="VERTEX" source="#Plane_001-mesh-vertices" offset="0"/>
+          <input semantic="NORMAL" source="#Plane_001-mesh-normals" offset="1"/>
+          <input semantic="TEXCOORD" source="#Plane_001-mesh-map-0" offset="2" set="0"/>
+          <p>5 1 3 6 1 4 4 1 5 4 6 18 8 6 19 9 6 20 4 7 21 10 7 22 5 7 23 5 8 24 11 8 25 7 8 26 6 9 27 11 9 28 8 9 29 5 1 33 7 1 34 6 1 35 4 6 48 6 6 49 8 6 50 4 10 51 9 10 52 10 10 53 5 11 54 10 11 55 11 11 56 6 12 57 7 12 58 11 12 59</p>
+        </triangles>
+        <triangles material="lamp_001-material" count="10">
+          <input semantic="VERTEX" source="#Plane_001-mesh-vertices" offset="0"/>
+          <input semantic="NORMAL" source="#Plane_001-mesh-normals" offset="1"/>
+          <input semantic="TEXCOORD" source="#Plane_001-mesh-map-0" offset="2" set="0"/>
+          <p>2 0 0 1 0 1 0 0 2 3 2 6 10 2 7 1 2 8 0 3 9 8 3 10 2 3 11 2 4 12 11 4 13 3 4 14 1 5 15 9 5 16 0 5 17 2 0 30 3 0 31 1 0 32 3 2 36 11 2 37 10 2 38 0 3 39 9 3 40 8 3 41 2 4 42 8 4 43 11 4 44 1 5 45 10 5 46 9 5 47</p>
+        </triangles>
+      </mesh>
+    </geometry>
+  </library_geometries>
+  <library_visual_scenes>
+    <visual_scene id="Scene" name="Scene">
+      <node id="light" name="light" type="NODE">
+        <matrix sid="transform">1 0 0 0 0 -1 8.74228e-8 0 0 -8.74228e-8 -1 0.6503022 0 0 0 1</matrix>
+        <instance_geometry url="#Plane_001-mesh" name="light">
+          <bind_material>
+            <technique_common>
+              <instance_material symbol="light_001-material" target="#light_001-material">
+                <bind_vertex_input semantic="UVMap" input_semantic="TEXCOORD" input_set="0"/>
+              </instance_material>
+              <instance_material symbol="lamp_001-material" target="#lamp_001-material">
+                <bind_vertex_input semantic="UVMap" input_semantic="TEXCOORD" input_set="0"/>
+              </instance_material>
+            </technique_common>
+          </bind_material>
+        </instance_geometry>
+      </node>
+    </visual_scene>
+  </library_visual_scenes>
+  <scene>
+    <instance_visual_scene url="#Scene"/>
+  </scene>
+</COLLADA>

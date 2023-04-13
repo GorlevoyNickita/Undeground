@@ -1,0 +1,80 @@
+[gd_scene load_steps=5 format=2]
+
+[ext_resource path="res://scenes/menu_pause.gd" type="Script" id=1]
+[ext_resource path="res://style/def_blue.tres" type="Theme" id=2]
+[ext_resource path="res://style/big3_font.tres" type="DynamicFont" id=3]
+[ext_resource path="res://style/big2_font.tres" type="DynamicFont" id=4]
+
+[node name="menu_pause" type="Control"]
+pause_mode = 2
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -960.0
+margin_top = -540.0
+margin_right = 960.0
+margin_bottom = 540.0
+theme = ExtResource( 2 )
+script = ExtResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="fill" type="ColorRect" parent="."]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -702.112
+margin_top = -345.5
+margin_right = 705.888
+margin_bottom = 345.5
+color = Color( 0.133333, 0.129412, 0.129412, 0.439216 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="label" type="Label" parent="fill"]
+anchor_left = 0.5
+anchor_right = 0.5
+margin_left = -150.0
+margin_right = 150.0
+margin_bottom = 60.0
+custom_fonts/font = ExtResource( 3 )
+text = "Pause"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="next" type="Button" parent="fill"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -205.888
+margin_top = -145.5
+margin_right = 202.112
+margin_bottom = -19.5
+custom_fonts/font = ExtResource( 4 )
+text = "Continue"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="exit" type="Button" parent="fill"]
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+margin_left = -204.0
+margin_top = -341.0
+margin_right = 204.0
+margin_bottom = -215.0
+custom_fonts/font = ExtResource( 4 )
+text = "Exit"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+[connection signal="pressed" from="fill/next" to="." method="_on_next_pressed"]
+[connection signal="pressed" from="fill/exit" to="." method="_on_exit_pressed"]

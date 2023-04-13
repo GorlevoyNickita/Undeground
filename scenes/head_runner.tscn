@@ -1,0 +1,18 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://scenes/head_runner.gd" type="Script" id=1]
+
+[sub_resource type="CubeMesh" id=1]
+
+[node name="hr" type="Spatial"]
+transform = Transform( 2, 0, 0, 0, 1, 0, 0, 0, 2, 0, 0, 0 )
+script = ExtResource( 1 )
+
+[node name="MeshInstance" type="MeshInstance" parent="."]
+transform = Transform( 0.5, 0, 0, 0, 1.1, 0, 0, 0, 0.488, 0, 0, 0 )
+cast_shadow = 0
+mesh = SubResource( 1 )
+material/0 = null
+
+[node name="enemy" type="Spatial" parent="."]
+transform = Transform( 0.5, 0, 0, 0, 1.1, 0, 0, 0, 0.488, 0, 0, 0 )
